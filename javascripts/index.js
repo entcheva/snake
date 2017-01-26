@@ -1,4 +1,4 @@
-$(document).ready(function(){
-  // call game here
-  this.board = new Board()
-})
+// $(document).ready(function(){
+//   // call game here
+//   this.board = new Board()
+// })

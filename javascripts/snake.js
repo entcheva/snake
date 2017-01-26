@@ -1,9 +1,10 @@
 class Snake {
 
   constructor() {
-    speed: 256,
-    x: 0,
-    y: 0
+    var sqSpeedX = 10
+    var sqSpeedY = 10
+    var sqPosX = 0
+    var sqPosY = 0
   }
 
 }

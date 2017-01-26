@@ -1,10 +1,13 @@
 class Board {
 
-  const CANVAS = document.createElement("canvas")
-  const CONTEXT = canvas.getContext("2d")
-  // canvas.width = 200
-  // canvas.height = 600
-  document.body.appendChild(canvas)
+  window.onload = function() {
+
+    var canvas = document.getElementById('myCanvas')
+    var cxt = canvas.getContext('2d')
+
+    ctx.fillRect(10, 10, 20, 20);
+
+  }
 
 
 
@@ -15,7 +18,7 @@ class Board {
 
 
 
-
+  // document.body.appendChild(canvas)
 
   constructor() {}
 
