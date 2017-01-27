@@ -1,5 +1,6 @@
-class Food {
+function Food() {
 
-  constructor() {}
+  this.x = 150
+  this.y = 150
 
 }

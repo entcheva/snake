@@ -9,8 +9,7 @@ h1 {
 }
 
 #myCanvas {
-  background: gray;
+  background: white;
   margin: auto;
   display: block;
-  margin-top: 50px;
 }
