@@ -9,8 +9,9 @@ window.onload = function() {
   // food(90, 60, 20, 20, 'blue')
   // call render
   food.position(food.x, food.y, 20, 20, 'blue')
-  snake.position(snake.x, snake.y, 20, 20, 'red')
+  snake.position(snake.x, snake.y, snake.xs, snake.ys, 'red')
   snake.move()
+  snake.eat()
 
 
 } // end of window.onload

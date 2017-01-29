@@ -4,6 +4,8 @@ function Snake() {
 
   this.x = 10
   this.y = 10
+  this.xs = 20
+  this.ys = 20
   this.speed = 50
 
 
@@ -37,6 +39,13 @@ function Snake() {
       }
     }) // end eventlistener function
   } // end move function
+
+
+  Snake.prototype.eat = function () {
+    if ((this.x === food.x) && (this.y === food.y)) {
+      snake.xs += 20
+    }
+  }
 
 
 
