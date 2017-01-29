@@ -6,10 +6,10 @@ window.onload = function() {
   snake = new Snake()
   food = new Food()
 
-  // food(90, 60, 20, 20, 'blue')
-  // call render
-  food.position(food.x, food.y, 20, 20, 'blue')
-  snake.position(snake.x, snake.y, snake.xs, snake.ys, 'red')
+
+  // call functions
+  food.position(food.x, food.y, food.sizeX, food.sizeY, 'blue')
+  snake.position(snake.x, snake.y, snake.sizeX, snake.sizeY, 'red')
   snake.move()
   snake.eat()
 
