@@ -1,19 +1,19 @@
 function Snake() {
-
-  var s
-
-  this.x = 10
-  this.y = 10
-  this.xs = 20
-  this.ys = 20
+  this.sizeX = 20
+  this.sizeY = 20
   this.speed = 50
 
+  // set min/max location, lock x/y coordinates to grid
+  this.x = Math.round((Math.random()*(280-0)+0)/20)*20
+  this.y = Math.round((Math.random()*(280-0)+0)/20)*20
 
-  Snake.prototype.position = function(x, y, xs, ys, color) {
+  // make a snake
+  Snake.prototype.position = function(x, y, sizeX, sizeY, color) {
     ctx.fillStyle = color
-    ctx.fillRect(x, y, xs, ys)
+    ctx.fillRect(x, y, sizeX, sizeY)
   }
 
+  // move snake
   Snake.prototype.move = function () {
     document.addEventListener('keydown', (key) => {
       if (key.which === 38) { // up
@@ -40,10 +40,10 @@ function Snake() {
     }) // end eventlistener function
   } // end move function
 
-
+  // snake eats
   Snake.prototype.eat = function () {
-    if ((this.x === food.x) && (this.y === food.y)) {
-      snake.xs += 20
+    if ((snake.x === food.x) && (snake.y === food.y)) {
+      snake.sizeX += 20
     }
   }
 

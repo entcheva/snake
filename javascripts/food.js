@@ -1,17 +1,16 @@
-
-
 function Food() {
+  this.sizeX = 20
+  this.sizeY = 20
 
-  // this.x = this.rando(10, 20)
-  this.x = Math.floor(Math.random() * (280 - 0 + 1)) + 0
-  this.y = Math.floor(Math.random() * (280 - 0 + 1)) + 0
+  // set min/max location, lock x/y coordinates to grid
+  this.x = Math.round((Math.random()*(280-0)+0)/20)*20
+  this.y = Math.round((Math.random()*(280-0)+0)/20)*20
 
-  Food.prototype.position = function(x, y, xs, ys, color) {
+  // make food
+  Food.prototype.position = function(x, y, sizeX, sizeY, color) {
     ctx.fillStyle = color
-    ctx.fillRect(x, y, xs, ys)
+    ctx.fillRect(x, y, sizeX, sizeY)
   }
-
-  // food should not appear on square where snake is
 
 
 }
