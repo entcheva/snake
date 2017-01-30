@@ -17,25 +17,17 @@ function Snake() {
   Snake.prototype.move = function () {
     document.addEventListener('keydown', (key) => {
       if (key.which === 38) { // up
-        let oldy = snake.y
-        snake.y -= 20
-        ctx.clearRect(snake.x, oldy, 20, 20)
-        snake.position(snake.x, snake.y, 20, 20, 'red')
+        var up = setInterval(snake.moveUp, 100)
+        clearInterval(up)
       } else if (key.which === 40) { // down
-        let oldy = snake.y
-        snake.y += 20
-        ctx.clearRect(snake.x, oldy, 20, 20)
-        snake.position(snake.x, snake.y, 20, 20, 'red')
+        var down = setInterval(snake.moveDown, 100)
+        clearInterval(down)
       } else if (key.which === 39) { // right
-        let oldx = snake.x
-        snake.x += 20
-        ctx.clearRect(oldx, snake.y, 20, 20)
-        snake.position(snake.x, snake.y, 20, 20, 'red')
+        var right = setInterval(snake.moveRight, 100)
+        clearInterval(right)
       } else if (key.which === 37) { // left
-        let oldx = snake.x
-        snake.x -= 20
-        ctx.clearRect(oldx, snake.y, 20, 20)
-        snake.position(snake.x, snake.y, 20, 20, 'red')
+        var left = setInterval(snake.moveLeft, 100)
+        clearInterval(left)
       }
 
       // redraw food at new location
@@ -44,7 +36,7 @@ function Snake() {
         food.y = Math.round((Math.random()*(280-0)+0)/20)*20
         ctx.fillStyle = 'blue'
         ctx.fillRect(food.x, food.y, 20, 20)
-        // ctx.fillRect(snake.x, snake.y, 20, 40)
+        ctx.fillRect(snake.x, snake.y, 20, 40)
       }
 
       // grow snake
@@ -52,10 +44,41 @@ function Snake() {
 
 
       // snake moves on its own
-      
+
 
     }) // end eventlistener function
   } // end move function
+
+
+
+Snake.prototype.moveUp = function () {
+  let oldy = snake.y
+  snake.y -= 20
+  ctx.clearRect(snake.x, oldy, 20, 20)
+  snake.position(snake.x, snake.y, 20, 20, 'red')
+}
+
+
+Snake.prototype.moveDown = function () {
+  let oldy = snake.y
+  snake.y += 20
+  ctx.clearRect(snake.x, oldy, 20, 20)
+  snake.position(snake.x, snake.y, 20, 20, 'red')
+}
+
+Snake.prototype.moveLeft = function () {
+  let oldx = snake.x
+  snake.x -= 20
+  ctx.clearRect(oldx, snake.y, 20, 20)
+  snake.position(snake.x, snake.y, 20, 20, 'red')
+}
+
+Snake.prototype.moveRight = function () {
+  let oldx = snake.x
+  snake.x += 20
+  ctx.clearRect(oldx, snake.y, 20, 20)
+  snake.position(snake.x, snake.y, 20, 20, 'red')
+}
 
 
 
