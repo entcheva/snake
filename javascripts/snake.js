@@ -6,10 +6,13 @@ function Snake() {
   var down
   var left
   var right
+  var body
+  
 
   // set min/max location, lock x/y coordinates to grid
   this.x = Math.round((Math.random()*(280-0)+0)/20)*20
   this.y = Math.round((Math.random()*(280-0)+0)/20)*20
+  this.body = [[0, 0]]
 
   // make a snake
   Snake.prototype.position = function(x, y, sizeX, sizeY, color) {
@@ -41,58 +44,59 @@ function Snake() {
         clearInterval(right)
         left = setInterval(snake.moveLeft, 300)
       }
-
-      
-
     }) // end eventlistener function
   } // end move function
 
 
 
 
-Snake.prototype.moveUp = function () {
-  let oldy = snake.y
-  snake.y -= 20
-  ctx.clearRect(snake.x, oldy, 20, 20)
-  snake.position(snake.x, snake.y, 20, 20, 'red')
-}
 
-Snake.prototype.moveDown = function () {
-  let oldy = snake.y
-  snake.y += 20
-  ctx.clearRect(snake.x, oldy, 20, 20)
-  snake.position(snake.x, snake.y, 20, 20, 'red')
-}
+  Snake.prototype.grow = function () {
+    if ((snake.x === food.x) && (snake.y === food.y)) {
+      // debugger
+      snake.sizeX += 20
+      snake.sizeY += 20
+      // snake.body.push([snake.x, snake.y]);
 
-Snake.prototype.moveLeft = function () {
-  let oldx = snake.x
-  snake.x -= 20
-  ctx.clearRect(oldx, snake.y, 20, 20)
-  snake.position(snake.x, snake.y, 20, 20, 'red')
-}
+      // ctx.fillStyle = 'green'
+      // ctx.fillRect(snake.x, snake.y, 40, 40)
+      // snake.move()
+    }
 
-Snake.prototype.moveRight = function () {
-  let oldx = snake.x
-  snake.x += 20
-  ctx.clearRect(oldx, snake.y, 20, 20)
-  snake.position(snake.x, snake.y, 20, 20, 'red')
-}
+  }
 
 
 
 
-// grow snake
-// make a snake array & append new square to it
+/****************************************************************/
+  // move functions for eventListener
+  Snake.prototype.moveUp = function () {
+    let oldy = snake.y
+    snake.y -= 20
+    ctx.clearRect(snake.x, oldy, snake.sizeX, snake.sizeY)
+    snake.position(snake.x, snake.y, snake.sizeX, snake.sizeY, 'green')
+  }
 
+  Snake.prototype.moveDown = function () {
+    let oldy = snake.y
+    snake.y += 20
+    ctx.clearRect(snake.x, oldy, snake.sizeX, snake.sizeY)
+    snake.position(snake.x, snake.y, snake.sizeX, snake.sizeY, 'green')
+  }
 
+  Snake.prototype.moveLeft = function () {
+    let oldx = snake.x
+    snake.x -= 20
+    ctx.clearRect(oldx, snake.y, snake.sizeX, snake.sizeY)
+    snake.position(snake.x, snake.y, snake.sizeX, snake.sizeY, 'green')
+  }
 
-  // Snake.prototype.eat = function () {
-  //   if ((snake.x === food.x) && (snake.y === food.y)) {
-  //     snake.sizeX += 20
-  //   }
-  // }
-
-
+  Snake.prototype.moveRight = function () {
+    let oldx = snake.x
+    snake.x += 20
+    ctx.clearRect(oldx, snake.y, snake.sizeX, snake.sizeY)
+    snake.position(snake.x, snake.y, snake.sizeX, snake.sizeY, 'green')
+  }
 
 
 } // end Snake function

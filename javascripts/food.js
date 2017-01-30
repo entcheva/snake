@@ -20,7 +20,6 @@ function Food() {
       food.y = Math.round((Math.random()*(280-0)+0)/20)*20
       ctx.fillStyle = 'blue'
       ctx.fillRect(food.x, food.y, 20, 20)
-      ctx.fillRect(snake.x, snake.y, 20, 40)
     }
   }
 
