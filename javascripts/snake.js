@@ -44,7 +44,15 @@ function Snake() {
         food.y = Math.round((Math.random()*(280-0)+0)/20)*20
         ctx.fillStyle = 'blue'
         ctx.fillRect(food.x, food.y, 20, 20)
+        // ctx.fillRect(snake.x, snake.y, 20, 40)
       }
+
+      // grow snake
+      // make a snake array & append new square to it
+
+
+      // snake moves on its own
+      
 
     }) // end eventlistener function
   } // end move function
@@ -55,7 +63,6 @@ function Snake() {
 
 
 
-  // snake eats
   // Snake.prototype.eat = function () {
   //   if ((snake.x === food.x) && (snake.y === food.y)) {
   //     snake.sizeX += 20
