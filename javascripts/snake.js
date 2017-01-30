@@ -13,21 +13,35 @@ function Snake() {
     ctx.fillRect(x, y, sizeX, sizeY)
   }
 
+  var up
+  var down
+  var left
+  var right
+
   // move snake
   Snake.prototype.move = function () {
     document.addEventListener('keydown', (key) => {
+
       if (key.which === 38) { // up
-        var up = setInterval(snake.moveUp, 100)
-        clearInterval(up)
-      } else if (key.which === 40) { // down
-        var down = setInterval(snake.moveDown, 100)
-        clearInterval(down)
-      } else if (key.which === 39) { // right
-        var right = setInterval(snake.moveRight, 100)
         clearInterval(right)
-      } else if (key.which === 37) { // left
-        var left = setInterval(snake.moveLeft, 100)
+        clearInterval(down)
         clearInterval(left)
+        up = setInterval(snake.moveUp, 100)
+      } else if (key.which === 40) { // down
+        clearInterval(up)
+        clearInterval(right)
+        clearInterval(left)
+        down = setInterval(snake.moveDown, 100)
+      } else if (key.which === 39) { // right
+        clearInterval(up)
+        clearInterval(down)
+        clearInterval(left)
+        right = setInterval(snake.moveRight, 100)
+      } else if (key.which === 37) { // left
+        clearInterval(up)
+        clearInterval(down)
+        clearInterval(right)
+        left = setInterval(snake.moveLeft, 100)
       }
 
       // redraw food at new location
@@ -36,14 +50,12 @@ function Snake() {
         food.y = Math.round((Math.random()*(280-0)+0)/20)*20
         ctx.fillStyle = 'blue'
         ctx.fillRect(food.x, food.y, 20, 20)
-        ctx.fillRect(snake.x, snake.y, 20, 40)
+        // ctx.fillRect(snake.x, snake.y, 20, 40)
       }
 
       // grow snake
       // make a snake array & append new square to it
 
-
-      // snake moves on its own
 
 
     }) // end eventlistener function
