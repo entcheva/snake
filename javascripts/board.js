@@ -11,7 +11,10 @@ window.onload = function() {
   food.position(food.x, food.y, food.sizeX, food.sizeY, 'blue')
   snake.position(snake.x, snake.y, snake.sizeX, snake.sizeY, 'red')
   snake.move()
-  // food.respawn()
+
+  setInterval(food.respawn, 300)
+
+  
   // snake.eat()
 
 

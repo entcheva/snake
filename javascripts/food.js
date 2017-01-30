@@ -12,6 +12,19 @@ function Food() {
     ctx.fillRect(x, y, sizeX, sizeY)
   }
 
+  // redraw food at new location
+  Food.prototype.respawn = function () {
+    // debugger
+    if ((snake.x === food.x) && (snake.y === food.y)) {
+      food.x = Math.round((Math.random()*(280-0)+0)/20)*20
+      food.y = Math.round((Math.random()*(280-0)+0)/20)*20
+      ctx.fillStyle = 'blue'
+      ctx.fillRect(food.x, food.y, 20, 20)
+      ctx.fillRect(snake.x, snake.y, 20, 40)
+    }
+  }
+
+
 
 
 
