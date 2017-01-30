@@ -5,8 +5,8 @@ window.onload = function() {
 
   snake = new Snake()
   food = new Food()
-  this.sprite = new Image()
-  this.sprite.src = 'sprite.svg'
+
+
 
 
   // call functions
@@ -14,8 +14,16 @@ window.onload = function() {
   snake.position(snake.x, snake.y, snake.sizeX, snake.sizeY, 'green')
   snake.move()
 
-  setInterval(snake.grow, 300)
-  setInterval(food.respawn, 300)
+  setInterval(food.respawn, 100)
+  // setInterval(snake.grow, 300)
 
 
 } // end of window.onload
+
+
+
+// if (
+//   ((snake.x + snake.sizeX + 20) === food.x || (snake.x + snake.sizeX - 20) === food.x)
+//   &&
+//   ((snake.y + snake.sizeY + 20) === food.x || (snake.y + snake.sizeY - 20) === food.x)
+// )

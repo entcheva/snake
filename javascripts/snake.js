@@ -7,7 +7,6 @@ function Snake() {
   var left
   var right
   var body
-  
 
   // set min/max location, lock x/y coordinates to grid
   this.x = Math.round((Math.random()*(280-0)+0)/20)*20
@@ -53,16 +52,9 @@ function Snake() {
 
   Snake.prototype.grow = function () {
     if ((snake.x === food.x) && (snake.y === food.y)) {
-      // debugger
       snake.sizeX += 20
       snake.sizeY += 20
-      // snake.body.push([snake.x, snake.y]);
-
-      // ctx.fillStyle = 'green'
-      // ctx.fillRect(snake.x, snake.y, 40, 40)
-      // snake.move()
     }
-
   }
 
 
