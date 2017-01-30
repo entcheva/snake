@@ -1,13 +1,10 @@
 window.onload = function() {
 
-  canvas = document.getElementById("myCanvas") // ideally we would create canvas in js
+  canvas = document.getElementById("myCanvas")
   ctx = canvas.getContext("2d")
 
   snake = new Snake()
   food = new Food()
-  this.sprite = new Image()
-  this.sprite.src = 'sprite.svg'
-
 
   // call functions
   food.position(food.x, food.y, food.sizeX, food.sizeY, 'blue')
@@ -16,6 +13,5 @@ window.onload = function() {
 
   setInterval(snake.grow, 300)
   setInterval(food.respawn, 300)
-
 
 } // end of window.onload
