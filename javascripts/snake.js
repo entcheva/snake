@@ -37,21 +37,30 @@ function Snake() {
         ctx.clearRect(oldx, snake.y, 20, 20)
         snake.position(snake.x, snake.y, 20, 20, 'red')
       }
+
+      // redraw food at new location
+      if ((snake.x === food.x) && (snake.y === food.y)) {
+        food.x = Math.round((Math.random()*(280-0)+0)/20)*20
+        food.y = Math.round((Math.random()*(280-0)+0)/20)*20
+        ctx.fillStyle = 'blue'
+        ctx.fillRect(food.x, food.y, 20, 20)
+      }
+
     }) // end eventlistener function
   } // end move function
 
+
+
+
+
+
+
   // snake eats
-  Snake.prototype.eat = function () {
-    if ((snake.x === food.x) && (snake.y === food.y)) {
-      snake.sizeX += 20
-    }
-  }
-
-
-
-
-
-
+  // Snake.prototype.eat = function () {
+  //   if ((snake.x === food.x) && (snake.y === food.y)) {
+  //     snake.sizeX += 20
+  //   }
+  // }
 
 
 
