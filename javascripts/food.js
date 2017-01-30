@@ -14,7 +14,7 @@ function Food() {
 
   // redraw food at new location
   Food.prototype.respawn = function () {
-    if ((snake.x === food.x) && (snake.y === food.y)) {
+    if ((snake.x === food.x) && (snake.y === food.y) || (snake2.x === food.x) && (snake2.y === food.y)) {
       food.x = Math.round((Math.random()*(280-0)+0)/20)*20
       food.y = Math.round((Math.random()*(280-0)+0)/20)*20
       ctx.fillStyle = 'blue'

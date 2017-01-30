@@ -49,34 +49,41 @@ function Snake2() {
 
 
 
+  Snake2.prototype.grow = function () {
+  if ((snake2.x === food.x) && (snake2.y === food.y)) {
+    snake2.sizeX += 20
+    snake2.sizeY += 20
+  }
+}
+
 /****************************************************************/
   // move functions for eventListener
   Snake2.prototype.moveUp = function () {
     let oldy = snake2.y
     snake2.y -= 20
     ctx.clearRect(snake2.x, oldy, snake2.sizeX, snake2.sizeY)
-    snake2.position(snake2.x, snake2.y, snake2.sizeX, snake2.sizeY, 'green')
+    snake2.position(snake2.x, snake2.y, snake2.sizeX, snake2.sizeY, 'red')
   }
 
   Snake2.prototype.moveDown = function () {
     let oldy = snake2.y
     snake2.y += 20
     ctx.clearRect(snake2.x, oldy, snake2.sizeX, snake2.sizeY)
-    snake2.position(snake2.x, snake2.y, snake2.sizeX, snake2.sizeY, 'green')
+    snake2.position(snake2.x, snake2.y, snake2.sizeX, snake2.sizeY, 'red')
   }
 
   Snake2.prototype.moveLeft = function () {
     let oldx = snake2.x
     snake2.x -= 20
     ctx.clearRect(oldx, snake2.y, snake2.sizeX, snake2.sizeY)
-    snake2.position(snake2.x, snake2.y, snake2.sizeX, snake2.sizeY, 'green')
+    snake2.position(snake2.x, snake2.y, snake2.sizeX, snake2.sizeY, 'red')
   }
 
   Snake2.prototype.moveRight = function () {
     let oldx = snake2.x
     snake2.x += 20
     ctx.clearRect(oldx, snake2.y, snake2.sizeX, snake2.sizeY)
-    snake2.position(snake2.x, snake2.y, snake2.sizeX, snake2.sizeY, 'green')
+    snake2.position(snake2.x, snake2.y, snake2.sizeX, snake2.sizeY, 'red')
   }
 
 
